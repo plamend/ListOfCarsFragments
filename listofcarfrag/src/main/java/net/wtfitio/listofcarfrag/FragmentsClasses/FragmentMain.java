@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import net.wtfitio.listofcarfrag.Adapters.CarsAdapter;
@@ -50,6 +51,12 @@ public class FragmentMain extends Fragment {
         adapter = new CarsAdapter(activity.getBaseContext(),R.layout.car_list_layout,cars);
         move.onAdapterCreate(adapter);
         list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                move.onListItemClick(i);
+            }
+        });
 
 
         return rootView;

@@ -6,5 +6,11 @@
     <string name="action_settings">Settings</string>
     <string name="car_make">Car Make</string>
     <string name="car_model">Car Model</string>
+    <string name="add_car">Add</string>
+    <string name="add_button">Add</string>
+    <string name="car_color">Color:</string>
+    <string name="car_pro_year">Production Year:</string>
+    <string name="car_name">Name:</string>
+    <string name="add_car_info">Add car info</string>
 
 </resources>

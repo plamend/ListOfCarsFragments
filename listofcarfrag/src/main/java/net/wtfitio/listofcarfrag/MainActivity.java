@@ -10,16 +10,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.Toast;
 
 import net.wtfitio.listofcarfrag.Adapters.CarsAdapter;
 import net.wtfitio.listofcarfrag.Classes.Car;
+import net.wtfitio.listofcarfrag.FragmentsClasses.AddFragment;
 import net.wtfitio.listofcarfrag.FragmentsClasses.FragmentMain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends ActionBarActivity implements FragmentMain.MoveExtras_Main_Fragment {
-    List<Car> cars;
+public class MainActivity extends ActionBarActivity implements  FragmentMain.MoveExtras_Main_Fragment,AddFragment.MoveExtras{
+
     CarsAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class MainActivity extends ActionBarActivity implements FragmentMain.Move
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new FragmentMain())
                     .commit();
-           
+
         }
     }
 
@@ -49,10 +51,20 @@ public class MainActivity extends ActionBarActivity implements FragmentMain.Move
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
+            switch (id){
+                case R.id.action_settings:
+                    createCar();
+                    return true;
+            }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void createCar() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container,new AddFragment())
+                .addToBackStack(null).commit();
+
+
     }
 
 
@@ -64,5 +76,7 @@ public class MainActivity extends ActionBarActivity implements FragmentMain.Move
     @Override
     public void onListItemClick(int position) {
 
+       Car car =  this.adapter.getItem(position);
+        Toast.makeText(this,car.getModel(),Toast.LENGTH_SHORT).show();
     }
 }
