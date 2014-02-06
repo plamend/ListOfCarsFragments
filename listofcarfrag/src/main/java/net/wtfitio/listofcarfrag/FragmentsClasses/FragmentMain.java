@@ -24,10 +24,19 @@ public class FragmentMain extends Fragment {
         public void onAdapterCreate(CarsAdapter adapter);
         public void onListItemClick(int position);
     }
+    public static FragmentMain getInstance(CarsAdapter adapter_pass){
+
+        FragmentMain fragment = new FragmentMain();
+        fragment.adapter=adapter_pass;
+        return fragment;
+    }
     MoveExtras_Main_Fragment move;
     public FragmentMain(){
 
     }
+
+private CarsAdapter adapter;
+    private Car car;
 
     @Override
     public void onAttach(Activity activity) {
@@ -45,11 +54,16 @@ public class FragmentMain extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         ListView list = (ListView) rootView.findViewById(R.id.list);
         List<Car> cars;
-        CarsAdapter adapter;
         Activity activity = getActivity();
+        if(this.adapter==null){
         cars = genCars();
-        adapter = new CarsAdapter(activity.getBaseContext(),R.layout.car_list_layout,cars);
+        this.adapter = new CarsAdapter(activity.getBaseContext(),R.layout.car_list_layout,cars);
         move.onAdapterCreate(adapter);
+        }
+        else{
+
+        }
+
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

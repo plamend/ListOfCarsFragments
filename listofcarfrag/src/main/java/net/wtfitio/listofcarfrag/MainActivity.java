@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity implements  FragmentMain.MoveExtras_Main_Fragment,AddFragment.MoveExtras{
 
-    CarsAdapter adapter;
+    CarsAdapter adapter=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,8 @@ public class MainActivity extends ActionBarActivity implements  FragmentMain.Mov
         int id = item.getItemId();
             switch (id){
                 case R.id.action_settings:
+
+                case R.id.action_add_car:
                     createCar();
                     return true;
             }
@@ -78,5 +80,14 @@ public class MainActivity extends ActionBarActivity implements  FragmentMain.Mov
 
        Car car =  this.adapter.getItem(position);
         Toast.makeText(this,car.getModel(),Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void OnCarCreate(Car car) {
+        adapter.add(car);
+        FragmentMain frag_main = FragmentMain.getInstance(adapter);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container,frag_main)
+                .commit();
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,76 +8,100 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="net.wtfitio.listofcarfrag.FragmentsClasses.AddFragment">>
+    tools:context="net.wtfitio.listofcarfrag.FragmentsClasses.AddFragment">
+
     <TextView
+        android:id="@+id/text_raw1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:text="@string/add_car_info"
         android:gravity="center"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/text_raw2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:text="@string/car_name"/>
+        android:text="@string/car_name"
+        android:layout_below="@id/text_raw1"/>
+
     <EditText
         android:id="@+id/car_name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:layout_below="@id/text_raw2"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/text_raw3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:text="@string/car_make"
-        />
+        android:layout_below="@id/car_name_input"/>
     <EditText
         android:id="@+id/car_make_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:inputType="text" />
+        android:inputType="text"
+        android:layout_below="@id/text_raw3"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/text_raw4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:text="@string/car_model"
-        />
+        android:layout_below="@id/car_make_input"/>
     <EditText
         android:id="@+id/car_model_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:inputType="text" />
+        android:inputType="text"
+        android:layout_below="@id/text_raw4"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/text_raw5"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:text="@string/car_pro_year"
+        android:layout_below="@id/car_model_input"
         />
     <EditText
         android:id="@+id/car_prod_year_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:inputType="text" />
+        android:inputType="text"
+        android:layout_below="@id/text_raw5"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/text_raw6"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:text="@string/car_color"
+        android:layout_below="@id/car_prod_year_input"
         />
     <EditText
         android:id="@+id/car_color_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:inputType="text" />
+        android:inputType="text"
+        android:layout_below="@id/text_raw6"/>
     <Button
         android:id="@+id/add_butoon"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_button"/>
+        android:text="@string/add_button"
+        android:layout_below="@id/car_color_input"/>
 
-</LinearLayout>
+    </RelativeLayout>
+
+
+
+
+
+
+
